@@ -27,11 +27,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # 3rd party apps
-    'rest_framework',          # 追加
+    'rest_framework',
 
-    # My apps
-    'apiv1.apps.Apiv1Config',  # 追加
-    'shop.apps.ShopConfig',    # 追加
+    # My applications
+    'apiv1.apps.Apiv1Config',
+    'shop.apps.ShopConfig',
 ]
 
 MIDDLEWARE = [
@@ -49,7 +49,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # 修正
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -95,6 +95,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# Authentication
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = 'rest_framework:login'
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
 
@@ -110,14 +115,8 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/dev/howto/static-files/
-
 STATIC_URL = '/static/'
-
-
-# Authentication
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = 'rest_framework:login'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 
 # REST Framework
