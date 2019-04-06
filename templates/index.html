@@ -146,6 +146,7 @@
       submitSave: function () {
         this.clearMessages()
         api({
+          // 登録済みかどうかでHTTPメソッドとエンドポイントを切り替える
           method: this.isCreated ? 'put' : 'post',
           url: this.isCreated ? '/books/' + this.form.book.id + '/' : '/books/',
           data: {
